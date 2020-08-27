@@ -27,11 +27,11 @@ class OverSampling(BaseEstimator, TransformerMixin):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
         
-        count_class_0, count_class_1 = data.OBJETIVO.value_counts()
+        count_class_0, count_class_1 = data.PROFILE.value_counts()
 
         # Divide by class
-        df_class_0 = data[data['OBJETIVO'] == "Aceptado"]
-        df_class_1 = data[data['OBJETIVO'] == "Sospechoso"]
+        df_class_0 = data[data['PROFILE'] == "Aceptado"]
+        df_class_1 = data[data['PROFILE'] == "Sospechoso"]
 
         #OVER
         df_class_1_over = df_class_1.sample(count_class_0, replace=True)
